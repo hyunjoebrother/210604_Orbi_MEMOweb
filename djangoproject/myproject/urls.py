@@ -24,4 +24,5 @@ router.register('blog', views.BlogView, 'blog')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('react/', views.ReactAppView.as_view()),
 ]
