@@ -19,7 +19,7 @@ from rest_framework import routers
 from orbiapp import views
 
 router = routers.DefaultRouter()
-router.register('wisesaying', views.WiseSayingView, 'wisesaying')
+router.register('blog', views.BlogView, 'blog')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

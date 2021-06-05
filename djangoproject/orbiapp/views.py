@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
 from rest_framework import viewsets
-from .serializers import WiseSayingSerializer
-from .models import WiseSaying
+from .serializers import BlogSerializer
+from .models import Blog
 
 # Create your views here.
 
 # API 제공해주는 view
-class WiseSayingView(viewsets.ModelViewSet):
-    serializer_class = WiseSayingSerializer
-    queryset = WiseSaying.objects.all()
+class BlogView(viewsets.ModelViewSet):
+    serializer_class = BlogSerializer
+    queryset = Blog.objects.all()
