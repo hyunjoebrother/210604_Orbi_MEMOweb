@@ -15,14 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import View
 from rest_framework import routers
-from orbiapp import views
+import orbiapp.views
 
 router = routers.DefaultRouter()
-router.register('blog', views.BlogView, 'blog')
+router.register('blog', orbiapp.views.BlogView, 'blog')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('react/', views.ReactAppView.as_view()),
+    path('react/', orbiapp.views.ReactAppView.as_view()),
+
+    path('', orbiapp.views.main, name = 'main'),
+    path('home/', orbiapp.views.home, name = 'home'),
+    path('orbimemo/<int:blog_id>', orbiapp.views.post_read, name = 'detail'),
+
+    path('orbimemo/create', orbiapp.views.post_create, name = 'create'),
+    path('orbimemo/edit/<int:blog_id>', orbiapp.views.post_edit, name = 'edit'),
+    path('orbimemo/update/<int:blog_id>', orbiapp.views.post_update, name = 'update'),
+    path('orbimemo/delete/<int:blog_id>', orbiapp.views.post_delete, name = 'delete'),
 ]
