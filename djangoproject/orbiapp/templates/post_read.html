@@ -11,7 +11,7 @@
     <!-- HEADER -->
     <header>
       <div class="inner">
-        <a href="{% url 'home' %}}" class="logo">
+        <a href="{% url 'home' %}" class="logo">
           <img src="" alt="Orbi LOGO" />
         </a>
       </div>
@@ -30,7 +30,6 @@
           <h1>제목 : {{blog.title}}</h1>
           <p>날짜 : {{blog.created_date}}</p>
           <p>최종 수정 날짜 : {{blog.modified_date}}</p>
-          <br /><br />
           <p>본문 : {{blog.body}}</p>
         </div>
         <div class="post-edit">

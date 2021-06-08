@@ -11,7 +11,7 @@
     <!-- HEADER -->
     <header>
       <div class="inner">
-        <a href="./home.html" class="logo">
+        <a href="{% url 'home' %}" class="logo">
           <img src="" alt="Orbi LOGO" />
         </a>
       </div>
@@ -27,16 +27,18 @@
     <section class="content">
       <div class="inner">
         <div class="container">
-          <form action="{% url 'post_create' %}">
+          <form action="{% url 'post_create' %}" method="POST">
             {% csrf_token %} 제목 :
-            <input type="text" name="title" />
+            <input type="text" name="title" value="{{blog.title}}" />
             <br />
             내용 :
-            <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <textarea name="body" id="" cols="30" rows="10">
+              {{blog.body}}
+            </textarea>
+            <div class="post-save">
+              <button type="submit">글쓰기</button>
+            </div>
           </form>
-        </div>
-        <div class="post-save">
-          <button type="submit">글쓰기</button>
         </div>
       </div>
     </section>

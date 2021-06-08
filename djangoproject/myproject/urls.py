@@ -29,10 +29,9 @@ urlpatterns = [
 
     path('', orbiapp.views.main, name = 'main'),
     path('home/', orbiapp.views.home, name = 'home'),
-    path('orbimemo/<int:blog_id>', orbiapp.views.post_read, name = 'detail'),
+    path('orbimemo/<int:id>/', orbiapp.views.post_read, name = 'post_read'),
 
-    path('orbimemo/create', orbiapp.views.post_create, name = 'create'),
-    path('orbimemo/edit/<int:blog_id>', orbiapp.views.post_edit, name = 'edit'),
-    path('orbimemo/update/<int:blog_id>', orbiapp.views.post_update, name = 'update'),
-    path('orbimemo/delete/<int:blog_id>', orbiapp.views.post_delete, name = 'delete'),
+    path('create/', orbiapp.views.post_create, name = 'post_create'),
+    path('edit/<int:id>/', orbiapp.views.post_edit, name = 'post_edit'),
+    path('delete/<int:id>/', orbiapp.views.post_delete, name = 'post_delete'),
 ]

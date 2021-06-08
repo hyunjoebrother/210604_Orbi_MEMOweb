@@ -38,43 +38,42 @@ def main(request) :
     return render(request, 'main.html')
 
 def home(request) :
-    blogs = Blog.objects
-    return render(request, 'home.html', {'blogs' : blogs})
+    blog_objects = Blog.objects.all()
+    return render(request, 'home.html', {'blog' : blog_objects})
 
-def post_read(request, blog_id) :
-    blog_object = get_object_or_404(Blog, pk = blog_id)
+def post_read(request, id) :
+    blog_object = get_object_or_404(Blog, pk = id)
     return render(request, 'post_read.html', {'blog' : blog_object})
 
+
 def post_create(request) :
-    create_blog = Blog()
+    if request.method == 'POST' :
+        blog_object = Blog()
+        blog_object.title = request.POST['title']
+        blog_object.created_date = timezone.datetime.now()
+        blog_object.body = request.POST['body']
+        blog_object.save()   
 
-    create_blog.title = request.GET['title']
-    create_blog.created_date = timezone.datetime.now()
-    create_blog.body = request.GET['body']
-
-    create_blog.save()
-
-    return redirect('/orbimemo/' + str(create_blog.id))
-
-
-def post_edit(request, edit_id) :
-    blog_edit = Blog.objects.get(id = edit_id)
-    return render(request, 'post_edit.html', {'blog' : blog_edit})
-
-def post_update(request, update_id) :
-    update_blog = Blog.objects.get(id = update_id)
-
-    update_blog.title = request.GET['title']
-    update_blog.created_date = timezone.datetime.now()
-    update_blog.body = request.GET['body']
-
-    update_blog.save()
-
-    return redirect('/orbimemo/' + str(update_blog.id))
+        return redirect('/orbimemo/' + str(blog_object.id))
+    
+    return render(request, 'post_create.html')
 
 
-def post_delete(request, delete_id) :
-    delete_blog = Blog.objects.get(id = delete_id)
-    delete_blog.delete()
+def post_edit(request, id) :
+    blog_object = get_object_or_404(Blog, pk = id)
+
+    if request.method == 'POST' :
+        blog_object.title = request.POST['title']
+        blog_object.body = request.POST['body']
+        blog_object.save()   
+
+        return redirect('/orbimemo/' + str(blog_object.id))
+    
+    return render(request, 'post_edit.html', {'blog' : blog_object})
+
+
+def post_delete(request, id) :
+    blog_object = get_object_or_404(Blog, pk = id)
+    blog_object.delete()
 
     return redirect('/')
