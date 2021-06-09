@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import View
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 from rest_framework import routers
 import orbiapp.views
 
@@ -35,3 +39,5 @@ urlpatterns = [
     path('edit/<int:id>/', orbiapp.views.post_edit, name = 'post_edit'),
     path('delete/<int:id>/', orbiapp.views.post_delete, name = 'post_delete'),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

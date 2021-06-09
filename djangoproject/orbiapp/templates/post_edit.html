@@ -1,54 +1,27 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbi Memo</title>
-  </head>
+{% extends 'base.html' %}
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <div class="inner">
-        <a href="{% url 'home' %}" class="logo">
-          <img src="" alt="Orbi LOGO" />
-        </a>
-      </div>
-
-      <div class="main-text">
-        <ul class="info">
-          <li>메모장</li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- CONTENT -->
-    <section class="content">
-      <div class="inner">
-        <div class="container">
-          <form action="{% url 'post_edit' blog.id %}" method="POST">
-            {% csrf_token %} 제목 :
-            <input type="text" name="title" value="{{blog.title}}" />
-            <br />
-            내용 :
-            <textarea name="body" id="" cols="30" rows="10">
+<body>
+  {% block contents %}
+  <!-- CONTENT -->
+  <section class="content">
+    <div class="inner">
+      <div class="container">
+        <form action="{% url 'post_edit' blog.id %}" method="POST">
+          {% csrf_token %} 제목 :
+          <input type="text" name="title" value="{{blog.title}}" />
+          <br />
+          내용 :
+          <textarea name="body" id="" cols="30" rows="10">
               {{blog.body}}
-            </textarea>
-            <div class="post-save">
-              <button type="submit">수정완료</button>
-            </div>
-          </form>
-        </div>
-        <br /><br />
+            </textarea
+          >
+          <div class="post-save">
+            <button type="submit">수정완료</button>
+          </div>
+        </form>
       </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="inner">
-        <a href="{% url 'post_create' %}">글쓰기</a>
-      </div>
-    </footer>
-  </body>
-</html>
+      <br /><br />
+    </div>
+  </section>
+  {% endblock%}
+</body>

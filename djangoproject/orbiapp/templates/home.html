@@ -1,49 +1,21 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbi Memo</title>
-  </head>
+{% extends 'base.html' %}
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <div class="inner">
-        <a href="{% url 'home' %}" class="logo">
-          <img src="" alt="Orbi LOGO" />
-        </a>
+<body>
+  {% block contents %}
+  <!-- CONTENT -->
+  <section class="content">
+    <div class="inner">
+      <div class="container">
+        {% for blog in blog %}
+        <h1>제목 : {{blog.title}}</h1>
+        <p>작성 날짜 : {{blog.created_date}}</p>
+        <p>
+          본문 미리보기: {{blog.summary}}
+          <a href="{% url 'post_read' blog.id %}">...more</a>
+        </p>
+        {% endfor %}
       </div>
-
-      <div class="main-text">
-        <ul class="info">
-          <li>메모장</li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- CONTENT -->
-    <section class="content">
-      <div class="inner">
-        <div class="container">
-          {% for blog in blog %}
-          <h1>제목 : {{blog.title}}</h1>
-          <p>작성 날짜 : {{blog.created_date}}</p>
-          <p>
-            본문 미리보기: {{blog.summary}}
-            <a href="{% url 'post_read' blog.id %}">...more</a>
-          </p>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="inner">
-        <a href="{% url 'post_create' %}">글쓰기</a>
-      </div>
-    </footer>
-  </body>
-</html>
+    </div>
+  </section>
+  {% endblock %}
+</body>

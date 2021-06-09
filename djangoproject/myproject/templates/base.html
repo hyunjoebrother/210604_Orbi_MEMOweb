@@ -27,14 +27,13 @@
     </header>
 
     <!-- CONTENT -->
-    <section class="content">
-      <div class="inner">
-        설명설명
+    {% block contents %} {% endblock %}
 
-        <div class="start">
-          <a href="{% url 'home' %}" class="btn">시작하기</a>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="inner">
+        <a href="{% url 'post_create' %}">글쓰기</a>
       </div>
-    </section>
+    </footer>
   </body>
 </html>

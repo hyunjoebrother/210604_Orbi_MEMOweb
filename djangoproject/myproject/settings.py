@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
 )
 
 
@@ -68,7 +68,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'myproject', 'build'),
+            'myproject/templates',
+            os.path.join(BASE_DIR, 'myproject', 'build', 'css'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -83,9 +84,10 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myproject', 'build', 'static')
+    os.path.join(BASE_DIR, 'myproject', 'static'),
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
