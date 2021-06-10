@@ -1,0 +1,45 @@
+/* COMMON */
+body {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.inner {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: #495baa;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+header > .inner {
+  height: 120px;
+}
+
+header .logo {
+  height: 75px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+header .main-text {
+  background-color: #fff;
+  color: #333;
+}

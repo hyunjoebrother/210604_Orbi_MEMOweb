@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -6,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orbi Memo</title>
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
   </head>
 
   <body>
@@ -20,9 +21,9 @@
       </div>
 
       <div class="main-text">
-        <ul class="info">
-          <li>메모장</li>
-        </ul>
+        <div class="info">
+          <p>메모장</p>
+        </div>
       </div>
     </header>
 

@@ -38,6 +38,4 @@ urlpatterns = [
     path('create/', orbiapp.views.post_create, name = 'post_create'),
     path('edit/<int:id>/', orbiapp.views.post_edit, name = 'post_edit'),
     path('delete/<int:id>/', orbiapp.views.post_delete, name = 'post_delete'),
-]
-
-urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

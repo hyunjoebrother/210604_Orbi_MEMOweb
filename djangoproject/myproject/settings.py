@@ -84,7 +84,7 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myproject', 'static'),
+    os.path.join(BASE_DIR, 'orbiapp', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
