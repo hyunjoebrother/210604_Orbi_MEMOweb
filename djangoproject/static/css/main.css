@@ -8,7 +8,7 @@ body {
 }
 
 img {
-  font-size: 16px;
+  font-size: 24px;
 }
 
 a {
@@ -44,7 +44,7 @@ header .logo {
   width: auto;
   height: auto;
 
-  border-radius: 10px;
+  border-radius: 30px;
 
   position: absolute;
 
@@ -52,17 +52,19 @@ header .logo {
   bottom: 0;
   left: 0;
   margin: auto;
+  background-color: transparent;
 }
 
 header .img {
-  width: 300px;
 }
 
 header .main-text {
   position: absolute;
   width: 30%;
   top: 60px;
-  left: 50px;
+  margin-left: 50px;
 
   color: #333;
+  font-size: 36px;
+  text-align: center;
 }
