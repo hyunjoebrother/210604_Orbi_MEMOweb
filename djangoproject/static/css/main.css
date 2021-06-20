@@ -59,12 +59,13 @@ header .img {
 }
 
 header .main-text {
-  position: absolute;
+  position: relative;
   width: 30%;
+  display: flex;
   top: 60px;
-  margin-left: 50px;
+  left: 300px;
 
   color: #333;
-  font-size: 36px;
+  font-size: 24px;
   text-align: center;
 }
